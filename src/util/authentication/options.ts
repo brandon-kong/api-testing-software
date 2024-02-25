@@ -8,6 +8,7 @@ import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '@/types/jwt';
 import { ErrorResponse } from '@/types/response';
 import { AdapterUser } from 'next-auth/adapters';
+import { PUBLIC_API_URL } from '../constants';
 
 const handler: NextAuthOptions = {
     providers: [
@@ -19,7 +20,7 @@ const handler: NextAuthOptions = {
                 password: { label: 'Password', type: 'password', placeholder: 'Password' },
             },
             async authorize(credentials) {
-                const res = await fetch('http://127.0.0.1:8000/api/v1/auth/login/', {
+                const res = await fetch(`${PUBLIC_API_URL}/auth/login/`, {
                     method: 'POST',
                     body: JSON.stringify(credentials),
                     headers: { 'Content-Type': 'application/json' },
@@ -56,7 +57,7 @@ const handler: NextAuthOptions = {
                 password2: { label: 'Confirm Password', type: 'password', placeholder: 'Confirm Password' },
             },
             async authorize(credentials) {
-                const res = await fetch('http://127.0.0.1:8000/api/v1/auth/registration/', {
+                const res = await fetch(`${PUBLIC_API_URL}/auth/registration/`, {
                     method: 'POST',
                     body: JSON.stringify(credentials),
                     headers: { 'Content-Type': 'application/json' },
@@ -119,7 +120,7 @@ const handler: NextAuthOptions = {
 
             // call verify token endpoint
 
-            const verifyRes = await fetch('http://127.0.0.1:8000/api/v1/auth/token/verify/', {
+            const verifyRes = await fetch(`${PUBLIC_API_URL}/auth/token/verify/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -132,7 +133,7 @@ const handler: NextAuthOptions = {
             if (verifyData.success != null && verifyData.success === false) {
                 // refresh token
 
-                const refreshRes = await fetch('http://127.0.0.1:8000/api/v1/auth/token/refresh/', {
+                const refreshRes = await fetch(`${PUBLIC_API_URL}/auth/token/refresh/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -144,10 +145,11 @@ const handler: NextAuthOptions = {
 
                 if (refreshData.success && refreshData.success === false) {
                     // if refresh fails, sign out
-                    return {
-                        ...token,
-                        exp: 0,
-                    };
+                    return null;
+                }
+
+                if (!refreshRes.ok) {
+                    return null;
                 }
 
                 if (refreshRes.ok) {
@@ -160,6 +162,9 @@ const handler: NextAuthOptions = {
         },
 
         async session({ session, token, user }: { session: Session; token: JWT; user: AdapterUser }) {
+            if (!token) {
+                return {} as Session;
+            }
             session.access = token.access;
             session.refresh = token.refresh;
             

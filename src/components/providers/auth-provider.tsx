@@ -54,7 +54,20 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
     const newSignOut = async (params?: SignOutParams) => {
         try {
+            
+
+            // call signout from backend
+            await fetch('/api/auth/logout/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ refresh: session?.refresh }),
+            
+            })
+            
             const response = await signOut(params);
+
             refetch();
 
             return response;

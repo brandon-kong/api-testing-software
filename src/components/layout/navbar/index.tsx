@@ -53,7 +53,7 @@ export default function Navbar ()
                 {
                     !isAuthenticated && (
                         <>
-                            <Button variant={'ghost'}>Login</Button>
+                            <Button variant={'ghost'} href={'/api/auth/signin'}>Login</Button>
                             <Button variant={'primary'}>Waitlist</Button>
                         </>
                     )

@@ -1,6 +1,7 @@
 import { twMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
+import Link from "next/link";
 
 const variants = cva(
     'cursor-pointer px-4 py-2 text-neutral-500 rounded-full font-medium tracking-normal leading-normal transition-colors duration-300 ease-in-out',
@@ -27,7 +28,9 @@ const variants = cva(
     }
 )
 
-export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>, VariantProps<typeof variants> {}
+export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>, VariantProps<typeof variants> {
+    href?: string;
+}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps> (
     ({ variant, size, className, children, ...props }, ref) => {
@@ -37,7 +40,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps> (
             ref={ref}
             {...props}
             >
-                {children}
+                {
+                    props.href ? (
+                        <Link href={props
+                        .href}
+                        >
+                            {children}
+                        </Link>
+                    ) : (
+                        children
+                    )
+                }
             </button>
         );
     }
