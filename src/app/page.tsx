@@ -1,4 +1,5 @@
 import { Button, Input } from "@/components";
+import TerminalMockup from "@/components/terminal-mockup";
 import Typography from "@/components/typography";
 import Image from "next/image";
 
@@ -12,7 +13,7 @@ export default function Home() {
             <div
             className={'relative h-full w-full'}
             >
-               <div className={'blob w-full h-full opacity-40'} />
+               <div className={'blob w-full h-full opacity-30'} />
               <Image draggable={false} src={'/backgrounds/grid2.webp'} alt={'background'} fill  
               className={'absolute w-full opacity-70 select-none'}
               />
@@ -52,7 +53,9 @@ export default function Home() {
               <form
               className={'mt-4 flex rounded-full border border-secondary w-full max-w-md p-1 pl-8 h-14'}
               >
-                <Input variant={'unstyled'} name={'email'} size={'lg'} type={'email'} placeholder={'name@email.com'}
+                <Input
+                autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false"
+                variant={'unstyled'} name={'email'} size={'lg'} type={'email'} placeholder={'name@email.com'}
                 className={'h-full w-full'}
                 />
 
@@ -73,6 +76,7 @@ export default function Home() {
               width={300}
               className={'w-full object-contain select-none'}
               />
+
             </div>
           </div>
         

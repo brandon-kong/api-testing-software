@@ -27,5 +27,23 @@ body {
 
 .blob {
   background: rgb(106,159,67);
-  background: linear-gradient(166deg, rgba(106,159,67,1) 0%, rgba(253,187,45,0) 50%);
+  background: linear-gradient(166deg, rgba(105, 159, 67, 0.774) 0%, rgba(253,187,45,0) 50%);
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #262829;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }

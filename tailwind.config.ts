@@ -42,6 +42,28 @@ const config: Config = {
           '950': '#292929',
         
         },
+
+        success: {
+          DEFAULT: "#6a9f43",
+          '50': '#f3f8ed',
+          '100': '#e3f0d7',
+          '200': '#c9e2b4',
+          '300': '#a7cf87',
+          '400': '#7db453',
+          '500': '#6a9f43',
+          '600': '#517e32',
+          '700': '#3f612a',
+          '800': '#354e26',
+          '900': '#2f4324',
+          '950': '#16240f',
+        },
+
+        keyword: {
+          DEFAULT: "#d73a49",
+          reserved: "#4db4ff",
+          number: "#d95b95",
+          param: "#d73a49",
+        }
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
