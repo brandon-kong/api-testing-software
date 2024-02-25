@@ -11,6 +11,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 import { neueRegrade, generalSans } from "@/util/fonts";
 import Navbar from "@/components/layout/navbar";
+import QueryProvider from "@/components/providers/query-provider";
+import { AuthProvider } from "@/components/providers/auth-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,8 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${generalSans.className} ${plusJakarta.variable}`}>
-        <Navbar />
-        {children}
+        <QueryProvider>
+          <AuthProvider>
+            <Navbar />
+            {children}
+          </AuthProvider>
+        </QueryProvider>
+        
       </body>
     </html>
   );

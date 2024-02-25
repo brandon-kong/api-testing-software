@@ -1,6 +1,9 @@
+'use client';
+
 import { Button, Divider } from "@/components";
-import Typography from "@/components/typography";
 import Image from "next/image";
+
+import { useAuth } from "@/components/providers/auth-provider";
 
 const navItems = [
     'Home',
@@ -8,8 +11,10 @@ const navItems = [
     'Features',
     'Pricing',
 ]
+
 export default function Navbar ()
 {
+    const { isAuthenticated, signOut } = useAuth();
     return (
         <header className="z-50 fixed top-0 left-1/2 -translate-x-1/2 w-full rounded-full my-6 max-w-content-width mx-auto h-navbar-height text-white flex justify-between items-center">
             <div className="flex items-center space-x-4">
@@ -36,8 +41,23 @@ export default function Navbar ()
             <div
             className={'space-x-2'}
             >
-                <Button variant={'ghost'}>Login</Button>
-                <Button variant={'primary'}>Waitlist</Button>
+                {
+                    isAuthenticated && (
+                        <>
+                            <Button variant={'ghost'}>Dashboard</Button>
+                            <Button variant={'primary'} onClick={() => signOut()}>Logout</Button>
+                        </>
+                    )
+                }
+
+                {
+                    !isAuthenticated && (
+                        <>
+                            <Button variant={'ghost'}>Login</Button>
+                            <Button variant={'primary'}>Waitlist</Button>
+                        </>
+                    )
+                }
             </div>
 
             
