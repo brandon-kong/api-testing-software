@@ -26,6 +26,22 @@ const config: Config = {
           '900': '#2f4324',
           '950': '#16240f',
         },
+
+        secondary: {
+          DEFAULT: "#989898",
+          '50': '#ffffff',
+          '100': '#efefef',
+          '200': '#dcdcdc',
+          '300': '#bdbdbd',
+          '400': '#989898',
+          '500': '#7c7c7c',
+          '600': '#656565',
+          '700': '#525252',
+          '800': '#464646',
+          '900': '#3d3d3d',
+          '950': '#292929',
+        
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

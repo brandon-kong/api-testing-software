@@ -2,6 +2,12 @@ import { Button, Divider } from "@/components";
 import Typography from "@/components/typography";
 import Image from "next/image";
 
+const navItems = [
+    'Home',
+    'About',
+    'Features',
+    'Pricing',
+]
 export default function Navbar ()
 {
     return (
@@ -14,18 +20,15 @@ export default function Navbar ()
 
                 <nav>
                     <ul className="flex items-center space-x-4 font-semibold text-neutral-400">
-                        <li>
-                            <Typography variant={'p-small'}>Home</Typography>
-                        </li>
-                        <li>
-                            <Typography variant={'p-small'}>About</Typography>
-                        </li>
-                        <li>
-                            <Typography variant={'p-small'}>Features</Typography>
-                        </li>
-                        <li>
-                            <Typography variant={'p-small'}>Pricing</Typography>
-                        </li>
+                        {
+                            navItems.map((item, index) => {
+                                return (
+                                    <li key={index}>
+                                        <Button variant={'text'}>{item}</Button>
+                                    </li>
+                                )
+                            })
+                        }
                     </ul>
                 </nav>
             </div>

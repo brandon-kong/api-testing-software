@@ -20,3 +20,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.radial-opacity {
+  background: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.8) 0%, rgba(80, 80, 80, 0.2) );
+}
+
+.blob {
+  background: linear-gradient(180deg,rgba(11,14,15,.82) 0%,rgba(24,31,33,0) 100%);
+}

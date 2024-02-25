@@ -7,17 +7,18 @@ const variants = cva(
     {
         variants: {
             variant: {
+                'landing': 'text-6xl xl:text-8xl font-semibold xl:leading-[106px] tracking-[-0.04em]',
                 'h1': 'text-4xl xl:text-5xl font-semibold leading-tight tracking-[-0.05em]',
                 'h2': 'text-4xl font-semibold leading-tight tracking-normal',
                 'h3': 'text-3xl font-semibold tracking-tight leading-normal',
                 'h4': 'text-2xl font-semibold tracking-normal leading-snug',
                 'h5': 'text-lg font-bold',
                 'h6': 'text-base font-bold',
-                'subtitle': 'text-xs font-medium tracking-widest leading-normal uppercase text-gray-400',
+                'subtitle': 'text-xs font-medium tracking-[0.15em] leading-normal uppercase text-gray-400',
                 'p': 'text-lg tracking-tight leading-normal',
                 'p-small': 'text-sm tracking-tight leading-snug',
                 'p-xsmall': 'text-xs tracking-tight leading-snug',
-                'p-large': 'text-md xl:text-xl tracking-tight leading-normal',
+                'p-large': 'font-medium text-md xl:text-xl tracking-wide xl:leading-relaxed',
                 'span': 'text-base',
             }
         },
@@ -28,6 +29,7 @@ const variants = cva(
 )
 
 const variantMapping: Record<string, React.ElementType> = {
+    landing: 'h1',
     h1: 'h1',
     h2: 'h2',
     h3: 'h3',
