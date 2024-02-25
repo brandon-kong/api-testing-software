@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar ()
 {
     return (
-        <header className="rounded-full my-6 max-w-content-width mx-auto h-navbar-height text-white flex justify-between items-center">
+        <header className="z-50 fixed top-0 left-1/2 -translate-x-1/2 w-full rounded-full my-6 max-w-content-width mx-auto h-navbar-height text-white flex justify-between items-center">
             <div className="flex items-center space-x-4">
                 <Image src="/brand/logo-with-text.svg" alt="logo" width={30} height={30}
                 className={'h-6 w-auto'}
@@ -30,8 +30,11 @@ export default function Navbar ()
                 </nav>
             </div>
 
-            <div>
-                <Button variant={'primary'}>Sign Up</Button>
+            <div
+            className={'space-x-2'}
+            >
+                <Button variant={'ghost'}>Login</Button>
+                <Button variant={'primary'}>Waitlist</Button>
             </div>
 
             
