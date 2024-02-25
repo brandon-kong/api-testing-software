@@ -3,10 +3,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
 const variants = cva(
-    'cursor-pointer px-4 py-2 text-neutral-500 rounded-full font-medium tracking-normal leading-normal transition-colors duration-300 ease-in-out',
+    'px-4 py-2 text-neutral-500 rounded-full font-medium tracking-normal leading-normal transition-colors duration-300 ease-in-out outline-none focus:outline-none',
     {
         variants: {
             variant: {
+                'unstyled': 'rounded-none bg-transparent px-0 py-0 text-neutral-500 hover:text-neutral-400',
                 'primary': 'bg-primary-500 text-primary-950 hover:bg-primary-400',
                 'secondary': 'bg-neutral-200 text-neutral-800',
                 'outline': 'bg-transparent border border-neutral-500 text-neutral-500',
@@ -27,23 +28,22 @@ const variants = cva(
     }
 )
 
-export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>, VariantProps<typeof variants> {}
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>, VariantProps<typeof variants> {}
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps> (
-    ({ variant, size, className, children, ...props }, ref) => {
+
+const Input = React.forwardRef<HTMLInputElement, InputProps> (
+    ({ variant, size, className, ...props }, ref) => {
         return (
-            <button
+            <input
             className={twMerge(variants({ variant, size, className }))}
             ref={ref}
             {...props}
-            >
-                {children}
-            </button>
+            />
         );
     }
 );
 
-Button.displayName = 'Button';
+Input.displayName = 'Input';
 
-export default Button;
-export { variants as ButtonVariants };
+export default Input;
+export { variants as InputVariants };

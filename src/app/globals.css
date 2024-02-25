@@ -22,9 +22,10 @@ body {
 }
 
 .radial-opacity {
-  background: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.8) 0%, rgba(80, 80, 80, 0.2) );
+  background: radial-gradient(ellipse at center,rgba(var(--foreground-rgb),.8) 0%,rgba(var(--foreground-rgb),0) 100%);
 }
 
 .blob {
-  background: linear-gradient(180deg,rgba(11,14,15,.82) 0%,rgba(24,31,33,0) 100%);
+  background: rgb(106,159,67);
+  background: linear-gradient(166deg, rgba(106,159,67,1) 0%, rgba(253,187,45,0) 50%);
 }
