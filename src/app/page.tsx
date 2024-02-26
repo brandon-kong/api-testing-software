@@ -59,9 +59,9 @@ export default function Home() {
                 className={'h-full w-full'}
                 />
 
-                <Button variant={'primary'} size={'lg'}
+                <Button variant={'primary'}
                 
-                className={'h-full w-full max-w-[150px] font-semibold'}
+                className={'h-full w-full max-w-[150px]'}
                 >
                   Get Started
                 </Button>
