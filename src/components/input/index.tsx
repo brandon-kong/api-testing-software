@@ -9,16 +9,13 @@ const variants = cva(
             variant: {
                 'unstyled': 'rounded-none bg-transparent px-0 py-0 text-neutral-500 hover:text-neutral-400',
                 'primary': 'bg-primary-500 text-primary-950 hover:bg-primary-400',
-                'secondary': 'bg-neutral-200 text-neutral-800',
-                'outline': 'bg-transparent border border-neutral-500 text-neutral-500',
-                'ghost': 'bg-transparent text-neutral-400 hover:bg-neutral-800',
-                'text': 'px-1 bg-transparent text-neutral-400 hover:text-neutral-200'
+                'solid': 'bg-secondary-800 text-secondary-300 hover:bg-secondary-900',
             },
 
             size: {
                 'sm': 'text-xs',
                 'md': 'text-sm',
-                'lg': 'text-lg',
+                'lg': '',
             }
         },
         defaultVariants: {

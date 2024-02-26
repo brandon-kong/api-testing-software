@@ -83,7 +83,7 @@ const handler: NextAuthOptions = {
     ],
 
     pages: {
-        //signIn: "/account/login",
+        signIn: "/account/login",
         newUser: '/account/create',
     },
 
@@ -145,11 +145,11 @@ const handler: NextAuthOptions = {
 
                 if (refreshData.success && refreshData.success === false) {
                     // if refresh fails, sign out
-                    return null;
+                    return token;
                 }
 
                 if (!refreshRes.ok) {
-                    return null;
+                    return token;
                 }
 
                 if (refreshRes.ok) {

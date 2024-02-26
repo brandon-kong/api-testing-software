@@ -1,5 +1,4 @@
 import { Button, Input } from "@/components";
-import TerminalMockup from "@/components/terminal-mockup";
 import Typography from "@/components/typography";
 import Image from "next/image";
 
@@ -61,7 +60,7 @@ export default function Home() {
 
                 <Button variant={'primary'} size={'lg'}
                 
-                className={'h-full w-full max-w-[150px]'}
+                className={'h-full w-full max-w-[150px] font-semibold'}
                 >
                   Get Started
                 </Button>

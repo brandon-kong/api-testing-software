@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PUBLIC_API_URL } from "@/util/constants";
 
-type RefreshBody = {
-    refresh?: string;
-};
-
 export async function POST (request: NextRequest) {
     const body = await request.json();
 
