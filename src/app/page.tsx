@@ -12,7 +12,8 @@ export default function Home() {
             <div
             className={'relative h-full w-full'}
             >
-               <div className={'blob w-full h-full opacity-30'} />
+               <div className={'absolute blob w-full h-full opacity-30'} />
+               <div className={'w-full h-[100px] opacity-60 bg-gradient-to-b from-black to-transparent'} />
               <Image draggable={false} src={'/backgrounds/grid2.webp'} alt={'background'} fill  
               className={'absolute w-full opacity-70 select-none'}
               />

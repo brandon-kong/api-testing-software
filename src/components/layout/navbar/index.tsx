@@ -29,7 +29,7 @@ export default function Navbar ()
                             navItems.map((item, index) => {
                                 return (
                                     <li key={index}>
-                                        <Button variant={'text'}>{item}</Button>
+                                        <Button href={'/'} variant={'text'}>{item}</Button>
                                     </li>
                                 )
                             })
@@ -53,7 +53,7 @@ export default function Navbar ()
                 {
                     !isAuthenticated && (
                         <>
-                            <Button variant={'ghost'} href={'/api/auth/signin'}>Login</Button>
+                            <Button variant={'ghost'} href={'/account/login'}>Login</Button>
                             <Button variant={'primary'}>Waitlist</Button>
                         </>
                     )

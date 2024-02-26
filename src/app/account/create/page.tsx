@@ -12,11 +12,15 @@ import { useAuth } from '@/components/providers/auth-provider';
 import { useRouter } from "next/navigation";
 
 type FormValues = {
+    firstName: string;
+    lastName: string;
     email: string;
-    password: string;
-}
+    password1: string;
+    password2: string;
+};
 
-export default function Login() {
+
+export default function CreateAccount() {
 
     const router = useRouter();
     const { signIn } = useAuth();
@@ -24,9 +28,18 @@ export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
 
     const onSubmit: SubmitHandler<FormValues> = async (e) => {
-        const res = await signIn('email-password', {
+
+        if (e.password1 !== e.password2) {
+            return;
+        }
+
+        const res = await signIn('register-email-password', {
             email: e.email,
-            password: e.password,
+            password1: e.password1,
+            password2: e.password2,
+            first_name: e.firstName,
+            last_name: e.lastName,
+            
             callbackUrl: '/',
             redirect: false
         });
@@ -47,9 +60,9 @@ export default function Login() {
             >
                 <div className={'absolute blob w-full h-full opacity-30'} />
                 <div className={'w-full h-[100px] opacity-60 bg-gradient-to-b from-black to-transparent'} />
-=            <Image draggable={false} src={'/backgrounds/grid2.webp'} alt={'background'} fill  
-            className={'absolute w-full opacity-50 select-none'}
-            />
+    =            <Image draggable={false} src={'/backgrounds/grid2.webp'} alt={'background'} fill  
+                className={'absolute w-full opacity-50 select-none'}
+                />
             </div>
         
         </div>
@@ -67,34 +80,46 @@ export default function Login() {
                 className={'flex flex-col gap-4 w-full items-start justify-start'}
                 >
                     <Typography variant={'h1'}>
-                        Login
+                        Create Account
                     </Typography>
 
                     <Typography variant={'p-large'} className={'text-secondary-300'}>
-                        Login to your account
+                        Create an account to get started
                     </Typography>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className={'w-full flex flex-col gap-4'}>
+                    <div className={'flex gap-4 w-full'}>
+                        <Input variant={'solid'} size={'lg'} placeholder={'First Name'} className={'w-full'}
+                        {...register('firstName', { required: 'First Name is required' })}
+                        />
+
+                        <Input variant={'solid'} size={'lg'} placeholder={'Last Name'} className={'w-full'}
+                        {...register('lastName', { required: 'Last Name is required' })}
+                        />
+                    </div>
                     <Input variant={'solid'} size={'lg'} placeholder={'Email'} className={'w-full'} 
                     {...register('email', { required: 'Email is required' })}
                     />
                     <Input variant={'solid'} size={'lg'} type={'password'} placeholder={'Password'} className={'w-full'}
-                    {...register('password', { required: 'Password is required' })}
+                    {...register('password1', { required: 'Password is required' })}
+                    />
+                    <Input variant={'solid'} size={'lg'} type={'password'} placeholder={'Confirm password'} className={'w-full'}
+                    {...register('password2', { required: 'Password is required' })}
                     />
                     <Button variant={'primary'}  className={'w-full'}>
-                        Login
+                        Create Account
                     </Button>
 
                     <div
                     className={'flex items-center justify-center w-full'}
                     >
                         <Typography variant={'p-small'} className={'text-secondary-300'}>
-                            Don&apos;t have an account?
+                            Already have an account?
                         </Typography>
 
-                        <Button href={'/account/create'} variant={'text'} className={'text-primary-500'}>
-                            Register
+                        <Button href={'/account/login'} variant={'text'} className={'text-primary-500'}>
+                            Login
                         </Button>
                     </div>
 

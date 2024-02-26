@@ -116,6 +116,8 @@ const handler: NextAuthOptions = {
                 } else {
                     token.exp = Date.now() + 60 * 60;
                 }
+
+                return token;
             }
 
             // call verify token endpoint
