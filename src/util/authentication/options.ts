@@ -151,7 +151,7 @@ const handler: NextAuthOptions = {
                 }
 
                 if (!refreshRes.ok) {
-                    return token;
+                    return {} as JWT;
                 }
 
                 if (refreshRes.ok) {
@@ -164,7 +164,8 @@ const handler: NextAuthOptions = {
         },
 
         async session({ session, token, user }: { session: Session; token: JWT; user: AdapterUser }) {
-            if (!token) {
+            
+            if (!token || !token.access) {
                 return {} as Session;
             }
             session.access = token.access;
