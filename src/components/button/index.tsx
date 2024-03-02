@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 
 const variants = cva(
-    'cursor-pointer px-4 py-2 text-neutral-500 rounded-full font-medium tracking-normal leading-normal transition-colors duration-300 ease-in-out',
+    'flex items-center justify-center cursor-pointer px-4 py-2 text-neutral-500 rounded-full font-medium tracking-normal leading-normal transition-colors duration-300 ease-in-out',
     {
         variants: {
             variant: {
@@ -29,29 +29,33 @@ const variants = cva(
     }
 )
 
-export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>, VariantProps<typeof variants> {
-    href?: string;
-}
+type ButtonOrAnchorProps<T extends HTMLElement> = Omit<React.HTMLAttributes<T>, 'size'> & VariantProps<typeof variants>;
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps> (
-    ({ variant, size, className, children, ...props }, ref) => {
+export type ButtonProps = ButtonOrAnchorProps<HTMLButtonElement> & ButtonOrAnchorProps<HTMLAnchorElement> & {
+    href?: string;
+};
+
+const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps> (
+    ({ variant, size, href, className, children, ...props }, ref) => {
+        if (href) {
+            return (
+                <Link
+                className={twMerge(variants({ variant, size, className }))}
+                ref={ref as React.Ref<HTMLAnchorElement>}
+                href={href}
+                {...props}
+                >
+                    {children}
+                </Link>
+            );
+        }
         return (
             <button
             className={twMerge(variants({ variant, size, className }))}
-            ref={ref}
+            ref={ref as React.Ref<HTMLButtonElement>}
             {...props}
             >
-                {
-                    props.href ? (
-                        <Link href={props
-                        .href}
-                        >
-                            {children}
-                        </Link>
-                    ) : (
-                        children
-                    )
-                }
+                { children }
             </button>
         );
     }

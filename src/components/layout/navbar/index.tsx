@@ -42,7 +42,7 @@ export default function Navbar ()
             </div>
 
             <div
-            className={'space-x-2'}
+            className={'flex items-center space-x-2'}
             >
                 {
                     isLoading ? (

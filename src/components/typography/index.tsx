@@ -3,14 +3,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
 const variants = cva(
-    'text-base font-sans',
+    'text-base font-sans text-white',
     {
         variants: {
             variant: {
-                'landing': 'text-6xl xl:text-[86px] font-semibold xl:leading-[92px] tracking-[-0.04em]',
-                'h1': 'text-4xl xl:text-5xl font-semibold leading-tight tracking-[-0.05em]',
-                'h2': 'text-4xl font-semibold leading-tight tracking-normal',
-                'h3': 'text-3xl font-semibold tracking-tight leading-normal',
+                'landing': 'text-6xl xl:text-[88px] font-semibold xl:leading-[92px] tracking-[-0.04em]',
+                'h1': 'text-4xl xl:text-[64px] font-semibold leading-tight tracking-[-0.05em]',
+                'h2': 'text-5xl font-semibold leading-tight tracking-normal',
+                'h3': 'text-[32px] font-semibold tracking-tight leading-normal',
                 'h4': 'text-2xl font-semibold tracking-normal leading-snug',
                 'h5': 'text-lg font-bold',
                 'h6': 'text-base font-bold',
@@ -51,7 +51,7 @@ VariantProps<typeof variants>
 {}
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps> (
-    ({ variant, className, children, ...props }, ref) => {
+    ({ variant = 'p', className, children, ...props }, ref) => {
         const Component = variantMapping[variant as Variant];
         return (
             <Component 

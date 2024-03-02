@@ -59,7 +59,9 @@ export default function Home() {
                 className={'h-full w-full'}
                 />
 
-                <Button variant={'primary'}
+                <Button 
+                href={'/signup'}
+                variant={'primary'}
                 
                 className={'h-full w-full max-w-[150px]'}
                 >
@@ -69,11 +71,11 @@ export default function Home() {
             </div>
 
             <div
-            className={'pt-16 w-full h-full max-w-md flex items-start justify-center'}
+            className={'pt-16 w-full h-full max-w-sm flex items-start justify-center'}
             >
               <Image draggable={false} src={'/illustrations/blocks.webp'} alt={'code review'}
-              height={300}
-              width={300}
+              height={280}
+              width={280}
               className={'w-full object-contain select-none'}
               />
 
@@ -84,6 +86,21 @@ export default function Home() {
           
         </div>
       </div>
+      <Typography variant={'h1'} >
+        Hello World
+      </Typography>
+      <Typography variant={'h2'} >
+        Hello World
+      </Typography>
+      <Typography variant={'h3'} >
+        Hello World
+      </Typography>
+      <Typography variant={'h4'} >
+        Hello World
+      </Typography>
+      <Typography  >
+        Testing testing body text
+      </Typography>
       
     </main>
   );

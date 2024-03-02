@@ -80,6 +80,10 @@ const config: Config = {
       maxWidth: {
         'content-width': 'var(--content-width)',
       },
+
+      fontSize: {
+       
+      }
     },
   },
   plugins: [],
