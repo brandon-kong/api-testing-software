@@ -12,12 +12,12 @@ const variants = cva(
                 'secondary': 'bg-secondary-300 hover:bg-secondary-400 text-secondary-950',
                 'outline': 'bg-transparent border border-neutral-500 text-neutral-500',
                 'ghost': 'bg-transparent text-neutral-400 hover:bg-neutral-800',
-                'text': 'px-1 bg-transparent text-neutral-400 hover:text-neutral-200'
+                'text': 'px-1 bg-transparent text-neutral-400 hover:text-neutral-200 h-fit'
             },
 
             size: {
                 'sm': 'text-xs',
-                'md': 'text-sm',
+                'md': 'text-sm h-10',
                 'lg': 'text-lg',
                 'icon': 'p-1 aspect-square w-fit h-auto'
             }

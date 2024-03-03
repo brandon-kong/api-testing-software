@@ -10,14 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useAuth } from '@/components/providers/auth-provider';
 import { useRouter } from "next/navigation";
-import LoginModal from "@/components/login-modal";
 
 type FormValues = {
     email: string;
     password: string;
 }
 
-export default function Login() {
+export default function LoginModal() {
 
     const router = useRouter();
     const { signIn } = useAuth();
@@ -38,46 +37,36 @@ export default function Login() {
     }
 
   return (
-    <main className="">
-
-        <div
-        className={'fixed h-full flex items-center justify-center max-w-lg w-full transform left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2'}>
-            <LoginModal />
-        </div>
-        
+    <main className="relative w-full bg-neutral-950 rounded-lg py-8 pb-12">
        <div
         id={'background'}
-        className={'absolute h-[853px] w-full -z-10'}
+        className={'absolute h-full w-full top-0 left-0'}
         >
             <div
             className={'relative h-full w-full'}
             >
-                <div className={'absolute blob w-full h-full opacity-30'} />
-                <div className={'w-full h-[100px] opacity-60 bg-gradient-to-b from-black to-transparent'} />
 =            <Image draggable={false} src={'/backgrounds/grid2.webp'} alt={'background'} fill  
-            className={'absolute w-full opacity-50 select-none'}
+            className={'absolute w-full opacity-60 select-none object-cover'}
             />
             </div>
-        
         </div>
 
         <div
         id={'main'}
-        className={'pt-42 hidden'}
         >
 
         
             <div
-            className={'mx-auto relative h-screen flex gap-8 flex-col items-center justify-center text-secondary-100 max-w-md'}
+            className={'mx-auto relative flex gap-8 flex-col items-center justify-center text-secondary-100 max-w-sm'}
             >
                 <div
-                className={'flex flex-col gap-4 w-full items-start justify-start'}
+                className={'flex flex-col text-center w-full items-start justify-start'}
                 >
-                    <Typography variant={'h1'}>
+                    <Typography variant={'h3'} className="w-full text-center">
                         Login
                     </Typography>
 
-                    <Typography variant={'p-large'} className={'text-secondary-300'}>
+                    <Typography variant={'p-large'} className={'w-full text-center text-secondary-400'}>
                         Login to your account
                     </Typography>
                 </div>

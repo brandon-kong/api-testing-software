@@ -9,7 +9,7 @@ const variants = cva(
             variant: {
                 'landing': 'text-6xl xl:text-[88px] font-semibold xl:leading-[92px] tracking-[-0.04em]',
                 'h1': 'text-4xl xl:text-[64px] font-semibold leading-tight tracking-[-0.05em]',
-                'h2': 'text-5xl font-semibold leading-tight tracking-normal',
+                'h2': 'text-5xl font-semibold leading-tight tracking-[-0.04em]',
                 'h3': 'text-[32px] font-semibold tracking-tight leading-normal',
                 'h4': 'text-2xl font-semibold tracking-normal leading-snug',
                 'h5': 'text-lg font-bold',

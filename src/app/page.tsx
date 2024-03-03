@@ -1,4 +1,5 @@
 import { Button, Input } from "@/components";
+import LoginModal from "@/components/login-modal";
 import Typography from "@/components/typography";
 import Image from "next/image";
 
@@ -7,7 +8,7 @@ export default function Home() {
     <main className="relative">
        <div
           id={'background'}
-          className={'absolute h-[853px] w-full'}
+          className={'absolute h-[800px] w-full'}
           >
             <div
             className={'relative h-full w-full'}
@@ -15,7 +16,7 @@ export default function Home() {
                <div className={'absolute blob w-full h-full opacity-30'} />
                <div className={'w-full h-[100px] opacity-60 bg-gradient-to-b from-black to-transparent'} />
               <Image draggable={false} src={'/backgrounds/grid2.webp'} alt={'background'} fill  
-              className={'absolute w-full opacity-70 select-none'}
+              className={'absolute w-full opacity-70 select-none object-cover'}
               />
             </div>
            
@@ -25,7 +26,15 @@ export default function Home() {
       className={'pt-42'}
       >
 
-      
+<div
+        className={'fixed h-full flex items-center justify-center bg-primary/10 backdrop-blur-sm w-full transform left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-50'}>
+            <div
+            className={'flex items-center justify-center max-w-md w-full z-50'}>
+              <LoginModal />
+            </div>
+            
+        </div>
+        
         <div
         className={'mx-auto relative pt-[185px] h-[853px] flex items-start justify-center text-secondary-100 max-w-content-width'}
         >
