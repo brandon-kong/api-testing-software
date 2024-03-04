@@ -38,12 +38,7 @@ export default function Login() {
     }
 
   return (
-    <main className="">
-
-        <div
-        className={'fixed h-full flex items-center justify-center max-w-lg w-full transform left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2'}>
-            <LoginModal />
-        </div>
+    <main className="relative">
         
        <div
         id={'background'}
@@ -63,7 +58,7 @@ export default function Login() {
 
         <div
         id={'main'}
-        className={'pt-42 hidden'}
+        className={'pt-42'}
         >
 
         
@@ -71,9 +66,9 @@ export default function Login() {
             className={'mx-auto relative h-screen flex gap-8 flex-col items-center justify-center text-secondary-100 max-w-md'}
             >
                 <div
-                className={'flex flex-col gap-4 w-full items-start justify-start'}
+                className={'flex flex-col w-full items-start justify-start'}
                 >
-                    <Typography variant={'h1'}>
+                    <Typography variant={'h2'}>
                         Login
                     </Typography>
 
